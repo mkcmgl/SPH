@@ -9,6 +9,23 @@ import Search from '@/pages/Search';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
 
+let originPush = VueRouter.prototype.push;
+let originreplace = VueRouter.prototype.replace;
+VueRouter.prototype.push = function(location, resolve, reject) {
+    if (resolve && reject) {
+        originPush.call(this, location, resolve, reject);
+    } else {
+        originPush.call(this, () => {}, () => {});
+    }
+}
+VueRouter.prototype.replace = function(location, resolve, reject) {
+    if (resolve && reject) {
+        originreplace.call(this, location, resolve, reject);
+    } else {
+        originreplace.call(this, () => {}, () => {});
+    }
+}
+
 export default new VueRouter({
     routes: [{
             path: "/home",

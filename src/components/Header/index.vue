@@ -63,13 +63,18 @@ export default {
         goSearch(){
             // this.$router.push("/search/"+this.keyword+'?k='+this.keyword.toUpperCase());
             // this.$router.push(`/search/${this.keyword}?k=${this.keyword.toUpperCase()}`)
-            this.$router.push({name:"search",params:{keyword:this.keyword||undefined},query:{k:this.keyword.toUpperCase()}})
+            this.$router.push({name:"search",params:{keyword:this.keyword||undefined},
+            query:{k:this.keyword.toUpperCase()}},
+            ()=>{},
+            (error)=>{
+            
+            })
         },
     },
 };
 </script>
 
-<style lang="less" >
+<style lang="less" scoped >
     .header {
         &>.top {
             background-color: #eaeaea;
