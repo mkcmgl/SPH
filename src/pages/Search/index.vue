@@ -1,12 +1,12 @@
 <template>
     <div>
-      
+        <typeNav/>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'SPHIndex',
+    name: '',
 
     data() {
         return {

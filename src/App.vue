@@ -18,14 +18,17 @@
 <script>
 import Header from './components/Header'
 import Footer from './components/Footer'
-// import TypeNav from './components/TypeNav'
+// import typeNav from './components/typeNav'
 
 export default {
   name: '',
   components: {
     Header,
     Footer
-  }
+  },
+  mounted(){
+    this.$store.dispatch("categoryList");
+  },
 }
 </script>
 

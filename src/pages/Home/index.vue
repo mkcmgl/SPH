@@ -1,7 +1,7 @@
 <template>
         <!-- 商品分类导航 -->
 <div>
-    <TypeNav/>
+    <typeNav/>
     <ListContainer/>
     <Recommend/>
     <Rank/>
@@ -32,7 +32,7 @@ export default {
         Grand,
     },
     computed:{
-        // ...mapState,
+       
     },
     data() {
         return {
