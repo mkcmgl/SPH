@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import typeNav from '@/components/TypeNav';
+import Carousel from '@/components/Carousel';
 
 Vue.component(typeNav.name, typeNav);
+Vue.component(Carousel.name, Carousel);
 import router from '@/router';
 
 
