@@ -64,18 +64,14 @@ export default {
     };
   },
 
-  mounted() {},
+  mounted() {
+    this.$bus.$on("clear", () => {
+      this.keyword = "";
+    });
+  },
 
   methods: {
     goSearch() {
-    //   this.$router.push(
-    //     "/search/" + this.keyword + "?k=" + this.keyword.toUpperCase()
-    //   );
-    //   this.$router.push(
-    //     `/search/${this.keyword}?k=${this.keyword.toUpperCase()}`
-    //   );
-    //   console.log("###########");
-    //   console.log(this);
       if (this.$route.query) {
         let location = {
           name: "search",
@@ -83,14 +79,34 @@ export default {
         };
         location.query = this.$route.query;
         console.log(location);
-        this.$nextTick(() => {
-          this.$router.push(
-            location,
-            () => {},
-            (error) => {}
-          );
-        });
+        this.$router.push(location);
       }
+      //   this.$router.push(
+      //     "/search/" + this.keyword + "?k=" + this.keyword.toUpperCase()
+      //   );
+      //   this.$router.push(
+      //     `/search/${this.keyword}?k=${this.keyword.toUpperCase()}`
+      //   );
+      //   console.log("###########");
+      //   console.log(this);
+
+      //也行
+      // if (this.$route.query) {
+
+      //   let location = {
+      //     name: "search",
+      //     params: { keyword: this.keyword || undefined },
+      //   };
+      //   location.query = this.$route.query;
+      //   console.log(location);
+      //     this.$router.push(
+      //       location,
+      //       () => {},
+      //       (error) => {}
+      //     );
+
+      // }
+
       // let location={name:"search",params:{ keyword: this.keyword || undefined }};
       //   this.$router.push(
       //     {
