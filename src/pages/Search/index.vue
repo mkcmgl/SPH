@@ -109,7 +109,7 @@
               </li>
             </ul>
           </div>
-          <Pagination />
+          <Pagination :pageNo="8" :pageSize="3" :total="91"  :continues="5"/>
         </div>
       </div>
     </div>

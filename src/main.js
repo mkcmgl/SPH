@@ -2,11 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import typeNav from '@/components/TypeNav';
 import Carousel from '@/components/Carousel';
-import Pagenation from '@/components/Pagenation';
+import Pagination from '@/components/Pagination';
 
 Vue.component(typeNav.name, typeNav);
 Vue.component(Carousel.name, Carousel);
-Vue.component(Pagenation.name, Pagenation);
+Vue.component(Pagination.name, Pagination);
 import router from '@/router';
 
 
