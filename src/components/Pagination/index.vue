@@ -1,18 +1,15 @@
 <template>
   <div class="pagination">
-    <button>上一页</button>
-    <button>1</button>
-    <button>···</button>
+    <button @click="$emit('getPageNo',pageNo-1)"  :disabled="pageNo == 1">上一页</button>
+    <button v-if="startNumberAndEndNumber.start>1" @click="$emit('getPageNo',1)" :class="{active:pageNo==1}" >1</button>
+    <button v-if="startNumberAndEndNumber.start>2">···</button>
 
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>7</button>
+    <button v-for="(page,index) in startNumberAndEndNumber.end" :key='index' v-if='page>=startNumberAndEndNumber.start' @click="$emit('getPageNo',page)" :class="{active:pageNo==page}">{{page}}</button>
+ 
 
-    <button>···</button>
-    <button>{{ totalPage }}</button>
-    <button>下一页</button>
+    <button v-if="startNumberAndEndNumber.end<totalPage-1">···</button>
+    <button v-if="startNumberAndEndNumber.end!=totalPage" @click="$emit('getPageNo',totalPage)">{{ totalPage }}</button>
+    <button @click="$emit('getPageNo',pageNo+1)"  :disabled="pageNo == totalPage">下一页</button>
 
     <button style="margin-left: 30px">共 {{ total }} 条</button>
   </div>
@@ -34,19 +31,18 @@ export default {
         start = 1;
         end = totalPage;
       } else {
-        let  num=parseInt(continues / 2);
-        if( pageNo-num<1 ){
+        start=pageNo- parseInt(continues / 2);
+        end= pageNo+parseInt(continues/2);
+        if(start<1){
           start=1;
-        }else{
-          start = pageNo - num;
+          end= continues
         }
-      
-        if (pageNo +num > totalPage) {
-          end = totalPage;
-        } else {
-          end = pageNo + num;
+        if(end>totalPage){
+          start=totalPage - continues + 1;
+          end=totalPage;
         }
       }
+      return {start,end};
     },
   },
 };
@@ -84,6 +80,11 @@ export default {
       color: #fff;
     }
   }
+}
+.active {
+
+  background: #409eff;
+ 
 }
 </style>
   
