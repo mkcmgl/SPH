@@ -3,8 +3,15 @@ import Search from "@/pages/Search";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Detail from "@/pages/Detail";
+import AddCartSuccess from '@/pages/AddCartSuccess';
 
 export default [{
+        path: "/addCartSuccess",
+        name: "addCartSuccess",
+        component: AddCartSuccess,
+        meta: { shouw: true },
+    },
+    {
         path: "/detail/:skuid",
         component: Detail,
         meta: { shouw: true },

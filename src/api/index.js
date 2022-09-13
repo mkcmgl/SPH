@@ -8,3 +8,4 @@ export const reqFloorList = () => mockRequests.get("/floors");
 
 export const reqGetSearchInfo = (params) => requests({ url: '/list', method: 'post', data: params });
 export const reqGoodsInfo = (skuId) => requests({ url: `/item/${skuId}`, method: 'get' });
+export const reqAddOrUpdeteShopCart = (skuId, skuNum) => requests({ url: `/cart/addToCart/${skuId}/${skuNum}`, method: "post" })

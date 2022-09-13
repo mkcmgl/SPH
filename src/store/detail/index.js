@@ -1,8 +1,9 @@
-import { reqGoodsInfo } from '@/api';
+import { reqGoodsInfo, reqAddOrUpdeteShopCart } from '@/api';
 
 const state = () => ({
     // feature: { property: value },
     goodInfo: {},
+
 });
 
 const mutations = {
@@ -12,6 +13,7 @@ const mutations = {
     REQFETDETAIL(state, goodInfo) {
         state.goodInfo = goodInfo;
     },
+
 };
 
 const actions = {
@@ -28,7 +30,17 @@ const actions = {
         if (result.code == 200) {
             commit('REQFETDETAIL', result.data);
         }
-    }
+    },
+    async addOrUpdeteShopCart({ commit }, { skuId, skuNum }) {
+        let result = await reqAddOrUpdeteShopCart(skuId, skuNum);
+        if (result.code == 200) {
+            //返回的是成功的标记
+            return "ok";
+        } else {
+            //返回的是失败的标记
+            return Promise.reject(new Error("faile"));
+        }
+    },
 };
 const getters = {
     categoryView(state) {
