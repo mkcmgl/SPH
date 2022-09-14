@@ -1,10 +1,12 @@
 import { reqGoodsInfo, reqAddOrUpdeteShopCart } from '@/api';
+import { getUUID } from '@/utils/uuid_token';
 
-const state = () => ({
+const state = {
     // feature: { property: value },
     goodInfo: {},
+    uuid_token: getUUID()
 
-});
+};
 
 const mutations = {
     // mutationHandler(state, payload) {

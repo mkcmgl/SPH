@@ -30,6 +30,7 @@ const getters = {
         return state.searchList.attrsList || [];
     },
 };
+
 export default {
     state,
     mutations,
