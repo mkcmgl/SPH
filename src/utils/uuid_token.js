@@ -11,6 +11,6 @@ export const getUUID = () => {
         localStorage.setItem('UUIDTOKEN', uuid_token);
     }
     //切记有返回值,没有返回值undefined
-    console.log(uuid_token);
+
     return uuid_token;
 }

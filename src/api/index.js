@@ -11,3 +11,5 @@ export const reqGetSearchInfo = (params) => requests({ url: '/list', method: 'po
 export const reqGoodsInfo = (skuId) => requests({ url: `/item/${skuId}`, method: 'get' });
 export const reqAddOrUpdeteShopCart = (skuId, skuNum) => requests({ url: `/cart/addToCart/${skuId}/${skuNum}`, method: "post" })
 export const reqGetCartList = () => requests({ url: `/cart/cartList`, method: 'get' });
+export const reqDeleteCart = (skuId) => requests({ url: `/cart/deleteCart/${skuId}`, method: 'delete' });
+export const reqCheckCart = (skuId, isChecked) => requests({ url: `cart/checkCart/${skuId}/${isChecked}`, method: 'get' })

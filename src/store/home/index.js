@@ -11,11 +11,11 @@ const mutations = {
         state.categoryList = categoryList;
     },
     GETBANNERLIST(state, bannerList) {
-        console.log('修改bannerList');
+        // console.log('修改bannerList');
         state.bannerList = bannerList;
     },
     GETFLOORLIST(state, floorList) {
-        console.log('修改floorList');
+        // console.log('修改floorList');
         state.floorList = floorList;
     },
 };
@@ -33,9 +33,9 @@ const actions = {
         }
     },
     async getBannerList({ commit }) {
-        console.log("获取");
+        // console.log("获取");
         let result = await reqGetBannerList();
-        console.log(result);
+        // console.log(result);
         if (result.code == 200) {
 
             commit('GETBANNERLIST', result.data)
@@ -43,7 +43,7 @@ const actions = {
     },
     async getFloorList({ commit }) {
         let result = await reqFloorList();
-        console.log(result);
+        // console.log(result);
         if (result.code == 200) {
             commit('GETFLOORLIST', result.data)
         }
