@@ -13,3 +13,5 @@ export const reqAddOrUpdeteShopCart = (skuId, skuNum) => requests({ url: `/cart/
 export const reqGetCartList = () => requests({ url: `/cart/cartList`, method: 'get' });
 export const reqDeleteCart = (skuId) => requests({ url: `/cart/deleteCart/${skuId}`, method: 'delete' });
 export const reqCheckCart = (skuId, isChecked) => requests({ url: `cart/checkCart/${skuId}/${isChecked}`, method: 'get' })
+export const reqGetCode = (phone) => requests({ url: `/user/passport/sendCode/${phone}`, method: 'get' });
+export const reqRegister = (data) => requests({ url: '/user/passport/register', data, method: 'post' });
