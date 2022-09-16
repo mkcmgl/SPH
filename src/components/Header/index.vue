@@ -130,7 +130,7 @@ export default {
   },
   computed: {
     userName() {
-      return this.$store.user.userInfo.name;
+      return this.$store.state.user.userInfo.name;
     },
   },
 };
