@@ -46,6 +46,7 @@ export default {
 
     mounted() {
         this.$store.dispatch("getFloorList");
+        this.$store.dispatch('userInfo');
     },
 
     methods: {

@@ -5,11 +5,15 @@
       <div class="container">
         <div class="loginList">
           <p>尚品汇欢迎您！</p>
-          <p>
+          <p v-if="!userName">
             <span>请</span>
             <!-- 声明式导航 需要to -->
             <router-link to="/login">登录</router-link>
             <router-link class="register" to="/register">免费注册</router-link>
+          </p>
+          <p v-else>
+            <a>{{ userName }}</a>
+            <a class="register" @click="logout">退出登录</a>
           </p>
         </div>
         <div class="typeList">
@@ -53,8 +57,6 @@
 </template>
 
 <script>
-import search from "@/store/search";
-
 export default {
   name: "",
 
@@ -124,6 +126,11 @@ export default {
         () => {},
         (error) => {}
       );
+    },
+  },
+  computed: {
+    userName() {
+      return this.$store.user.userInfo.name;
     },
   },
 };

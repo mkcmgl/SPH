@@ -1,8 +1,10 @@
-import { reqGetCode, reqRegister, reqLogin } from '@/api';
+import { reqGetCode, reqRegister, reqLogin, reqUserInfo } from '@/api';
+import { setToken, getToken, removeToken } from "@/utils/token";
 const state = {
     // feature: { property: value },
     code: '',
-
+    token: getToken(),
+    userInfo: '',
 };
 
 const mutations = {
@@ -11,7 +13,14 @@ const mutations = {
     // },
     GETCODE(state, code) {
         state.code = code
+    },
+    LOGIN(state, token) {
+        state.token = token;
+    },
+    USERINFO(state, userInfo) {
+        state.userInfo = userInfo;
     }
+
 };
 
 const actions = {
@@ -44,8 +53,22 @@ const actions = {
     },
     async login({ commit }, data) {
         let result = await reqLogin(data);
-        console.log(result);
-
+        if (result.code == 200) {
+            commit('LOGIN', result.data.token)
+            setToken(result.data.token)
+            return "ok";
+        } else {
+            return Promise.reject(new Error('faile'));
+        }
+    },
+    async userInfo({ commit }) {
+        let result = await reqUserInfo()
+        if (result.code == 200) {
+            commit('USERINFO', result.data);
+            return 'ok';
+        } else {
+            return Promise.reject(new Error('faile'));
+        }
     }
 
 };

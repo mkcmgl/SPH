@@ -21,7 +21,7 @@
               </div>
               <div class="input-text clearFix">
                 <span class="pwd"></span>
-                <input type="text" placeholder="请输入密码" v-model="passward">
+                <input type="text" placeholder="请输入密码" v-model="password">
               </div>
               <div class="setting clearFix">
                 <label class="checkbox inline">
@@ -30,7 +30,7 @@
                 </label>
                 <span class="forget">忘记密码？</span>
               </div>
-              <button class="btn" @click="userLogin">登&nbsp;&nbsp;录</button>
+              <button class="btn" @click.prevent="userLogin">登&nbsp;&nbsp;录</button>
             </form>
 
             <div class="call clearFix">
@@ -71,13 +71,20 @@
     data(){
       return {
         phone:'',
-        passward:'',
+        password:'',
         
       }
     },
     methods:{
-      userLogin(){
-        
+      async  userLogin(){
+      try {
+        const {phone,password}=this;
+        console.log(phone,password)
+        this.phone&&this.password &&(await this.$store.dispatch('login',{phone,password}));
+        this.$router.push("/home");
+      } catch (error) {
+        console.log(error.message);
+      }
       }
     }
   }
