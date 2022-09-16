@@ -17,3 +17,4 @@ export const reqGetCode = (phone) => requests({ url: `/user/passport/sendCode/${
 export const reqRegister = (data) => requests({ url: '/user/passport/register', data, method: 'post' });
 export const reqLogin = (data) => requests({ url: "/user/passport/login", data, method: 'post' });
 export const reqUserInfo = () => requests({ url: '/user/passport/auth/getUserInfo', method: 'get' })
+export const reqLogout = () => requests({ url: '/user/passport/logout', method: 'get' })

@@ -127,6 +127,15 @@ export default {
         (error) => {}
       );
     },
+    async logout(){
+      try {
+        await this.$store.dispatch('logout');
+        this.$router.push('/home');
+      } catch (error) {
+        return Promise.reject(new Error('faile'));
+      }
+
+    }
   },
   computed: {
     userName() {

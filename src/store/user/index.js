@@ -1,4 +1,4 @@
-import { reqGetCode, reqRegister, reqLogin, reqUserInfo } from '@/api';
+import { reqGetCode, reqRegister, reqLogin, reqUserInfo, reqLogout } from '@/api';
 import { setToken, getToken, removeToken } from "@/utils/token";
 const state = {
     // feature: { property: value },
@@ -19,6 +19,11 @@ const mutations = {
     },
     USERINFO(state, userInfo) {
         state.userInfo = userInfo;
+    },
+    CLEARTOKEN(state) {
+        state.token = '';
+        state.userInfo = {};
+        removeToken();
     }
 
 };
@@ -68,6 +73,16 @@ const actions = {
             return 'ok';
         } else {
             return Promise.reject(new Error('faile'));
+        }
+    },
+    async logout({ commit }) {
+        let result = await reqLogout()
+        console.log(result)
+        if (result.code == 200) {
+            commit('CLEARTOKEN')
+            return 'ok';
+        } else {
+            return Promise.resolve(new Error('faile'));
         }
     }
 
