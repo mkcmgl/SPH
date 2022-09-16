@@ -4,7 +4,7 @@ const state = {
     // feature: { property: value },
     code: '',
     token: getToken(),
-    userInfo: '',
+    userInfo: {},
 };
 
 const mutations = {

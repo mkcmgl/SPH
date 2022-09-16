@@ -46,7 +46,10 @@ export default {
 
     mounted() {
         this.$store.dispatch("getFloorList");
-        this.$store.dispatch('userInfo');
+        if(this.$store.state.user.token){
+            this.$store.dispatch('userInfo');
+        }
+        
     },
 
     methods: {
