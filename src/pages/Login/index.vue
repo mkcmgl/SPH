@@ -30,7 +30,7 @@
                 </label>
                 <span class="forget">忘记密码？</span>
               </div>
-              <button class="btn">登&nbsp;&nbsp;录</button>
+              <button class="btn" @click="userLogin">登&nbsp;&nbsp;录</button>
             </form>
 
             <div class="call clearFix">
@@ -72,6 +72,11 @@
       return {
         phone:'',
         passward:'',
+        
+      }
+    },
+    methods:{
+      userLogin(){
         
       }
     }

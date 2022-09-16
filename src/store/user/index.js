@@ -1,4 +1,4 @@
-import { reqGetCode, reqRegister } from '@/api';
+import { reqGetCode, reqRegister, reqLogin } from '@/api';
 const state = {
     // feature: { property: value },
     code: '',
@@ -33,7 +33,7 @@ const actions = {
             return Promise.reject(new Error('faile'));
         }
     },
-    async register({ dispatch }, data) {
+    async register({ commit }, data) {
         let result = await reqRegister(data);
         console.log(result);
         if (result.code == 200) {
@@ -42,6 +42,11 @@ const actions = {
             return Promise.reject(new Error('faile'));
         }
     },
+    async login({ commit }, data) {
+        let result = await reqLogin(data);
+        console.log(result);
+
+    }
 
 };
 const getters = {};
