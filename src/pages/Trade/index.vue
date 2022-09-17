@@ -112,6 +112,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Trade",
   data() {
@@ -179,7 +180,7 @@ export default {
           this.$router.push('/pay/?orderId='+this.orderId);
        }else{
          //失败
-         alert(result.message);
+         console.log(result.message);
        }
 
 
