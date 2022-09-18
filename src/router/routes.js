@@ -6,8 +6,16 @@ import Detail from "@/pages/Detail";
 import AddCartSuccess from '@/pages/AddCartSuccess';
 import ShopCart from '@/pages/ShopCart'
 import Trade from '@/pages/Trade';
+import Pay from '@/pages/Pay';
 
-export default [{
+export default [
+    {
+        path: "/pay",
+        name: "pay",
+        component: Pay,
+        meta: { shouw: true },
+    },
+    {
         path: "/trade",
         name: "trade",
         component: Trade,
