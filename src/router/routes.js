@@ -7,8 +7,15 @@ import AddCartSuccess from '@/pages/AddCartSuccess';
 import ShopCart from '@/pages/ShopCart'
 import Trade from '@/pages/Trade';
 import Pay from '@/pages/Pay';
+import PaySuccess from '@/pages/PaySuccess';
 
 export default [
+    {
+        path: "/paySuccess",
+        name: "paySuccess",
+        component: PaySuccess,
+        meta: { shouw: true },
+    },
     {
         path: "/pay",
         name: "pay",
