@@ -18,8 +18,17 @@ import * as API from '@/api';
 import store from '@/store';
 import '@/mock/mockServe';
 import 'swiper/css/swiper.css';
+import atm from '@/assets/1.gif';
+import VueLazyload from 'vue-lazyload';
+
 Vue.config.productionTip = false
 
+
+
+Vue.use(VueLazyload,{
+    //懒加载默认的图片
+    loading:atm
+  });
 new Vue({
     render: h => h(App),
     beforeCreate() {
