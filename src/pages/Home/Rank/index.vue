@@ -166,7 +166,7 @@ export default {
                     overflow: hidden;
                     list-style: none;
                     line-height: 18px;
-
+                    width:2000px;
                     .img-item {
                         border: 1px solid #e1251b;
                         width: 269px;

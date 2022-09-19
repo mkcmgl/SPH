@@ -92,6 +92,7 @@ export default {
     if (this.$route.path != "/home") {
       this.show = false;
     }
+    console.log(this.categoryList)
   },
   computed: {
     ...mapState({

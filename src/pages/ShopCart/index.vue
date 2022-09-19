@@ -191,7 +191,7 @@ export default {
         await this.$store.dispatch("updateAllCartIsChecked", isChecked);
         this.getData();
       } catch (error) {
-        console.log(error.message);
+        alert(error.message);
       }
     },
   },

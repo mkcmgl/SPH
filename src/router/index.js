@@ -45,6 +45,7 @@ router.beforeEach(async(to, from, next) => {
             } else {
                 try {
                     await store.dispatch('userInfo');
+                    next();
                 } catch (error) {
                     await store.dispatch('logout');
                     next('/login')
@@ -53,15 +54,14 @@ router.beforeEach(async(to, from, next) => {
         }
     } else {
         let toPath = to.path;
-        if(toPath.indexOf('/trade')!=-1 || toPath.indexOf('/pay')!=-1||toPath.indexOf('/center')!=-1){
-          //把未登录的时候向去而没有去成的信息，存储于地址栏中【路由】
-          next('/login? ='+toPath);
-        }else{
-           //去的不是上面这些路由（home|search|shopCart）---放行
-           next();
+        if (toPath.indexOf('/trade') != -1 || toPath.indexOf('/pay') != -1 || toPath.indexOf('/center') != -1) {
+            //把未登录的时候向去而没有去成的信息，存储于地址栏中【路由】
+            next('/login?redirect=' + toPath);
+        } else {
+            //去的不是上面这些路由（home|search|shopCart）---放行
+            next();
         }
     }
-
 
 });
 

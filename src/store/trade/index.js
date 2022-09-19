@@ -1,16 +1,21 @@
-import {reqAddressInfo,reqOrderInfo} from '@/api';
-const state ={
+import { reqAddressInfo, reqOrderInfo } from '@/api';
+
+
+const state = {
     // feature: { property: value },
-    addressList:[],
-    orderInfo:{},
+    addressList: [],
+    orderInfo: {},
 };
 
 const mutations = {
+    // mutationHandler(state, payload) {
+
+    // },
     GETADDRESSINFO(state, addressList) {
-        state.addressList=addressList
+        state.addressList = addressList
     },
-    GETOREDERINFO(state,orderInfo){
-        state.orderInfo=orderInfo
+    GETORDERINFO(state, orderInfo) {
+        state.orderInfo = orderInfo;
     }
 };
 
@@ -21,26 +26,26 @@ const actions = {
     //             commit(mutationHandler, response);
     //             resolve(response);
     //         });
-
     //     });
-// }
-        async getAddressInfo({commit}){
-            let result= await reqAddressInfo();
-            console.log(result);
-            if(result.code==200){
-                commit('GETADDRESSINFO',result.data)
-            }
-        },
-        async getOrderInfo({commit}){
-            let result=await reqOrderInfo();
-            console.log(result);
-            if(result.code==200){
-                commit('GETOREDERINFO',result.data);
-            }
+    // },
+    async getAddressInfo({ commit }) {
+        let result = await reqAddressInfo();
+        console.log(result);
+        if (result.code == 200) {
+            commit('GETADDRESSINFO', result.data);
+            return 'ok';
         }
-    };
+    },
+    async getOrderInfo({ commit }) {
+        let result = await reqOrderInfo();
+        console.log(result)
+        if (result.code == 200) {
+            commit('GETORDERINFO', result.data);
+        }
+    }
 
-const getters={};
+};
+const getters = {};
 export default {
     // namespaced: true,
     state,
